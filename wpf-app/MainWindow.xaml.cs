@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using wpf_app.Controls.AStar;
 
 namespace wpf_app
 {
@@ -23,6 +24,28 @@ namespace wpf_app
         public MainWindow()
         {
             InitializeComponent();
+            SetEventHandlers();
+        }
+
+        private void SetEventHandlers()
+        {
+            PreviewKeyDown += OnPreviewKeyDown;
+        }
+
+        private void OnPreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Escape) Close();
+        }
+
+        private void OnExitClick(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        private void OnAStarClick(object sender, RoutedEventArgs e)
+        {
+            MainContainer.Children.Clear();
+            MainContainer.Children.Add(new Container());
         }
     }
 }

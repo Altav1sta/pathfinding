@@ -1,0 +1,40 @@
+﻿<UserControl x:Class="wpf_app.Controls.AStar.Container"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:wpf_app.Controls.AStar"
+             mc:Ignorable="d">
+    <UserControl.Resources>
+        <Style TargetType="GroupBox">
+            <Setter Property="Margin" Value="0 0 0 10"></Setter>
+            <Setter Property="Padding" Value="10"></Setter>
+        </Style>
+    </UserControl.Resources>
+    <DockPanel LastChildFill="True">
+        <Border DockPanel.Dock="Left" Padding="10">
+            <StackPanel>
+                <GroupBox Header="Seed">
+                    <TextBox>1023</TextBox>
+                </GroupBox>
+                <GroupBox Header="Cell Size">
+                    <TextBox >20</TextBox>
+                </GroupBox>
+                <GroupBox Header="Obstacle Percentage">
+                    <TextBox >0.3</TextBox>
+                </GroupBox>
+                <GroupBox Header="Diagonal Moves Allowed">
+                    <StackPanel Orientation="Vertical">
+                        <RadioButton GroupName="DiagonalMovesAllowed" IsChecked="True">Yes</RadioButton>
+                        <RadioButton GroupName="DiagonalMovesAllowed">No</RadioButton>
+                    </StackPanel>
+                </GroupBox>
+                <DockPanel LastChildFill="False">
+                    <Button Width="50" DockPanel.Dock="Left" Click="OnRunClick">Run</Button>
+                    <Button Width="50" DockPanel.Dock="Right" Click="OnRestartClick">Restart</Button>
+                </DockPanel>
+            </StackPanel>
+        </Border>
+        <Canvas x:Name="AStarCanvas" MouseLeftButtonDown="OnCellMouseUp"/>
+    </DockPanel>
+</UserControl>

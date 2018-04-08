@@ -5,8 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:wpf_app"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
-    </Grid>
+        Title="Pathfinding">
+    <DockPanel LastChildFill="True">
+        <Menu DockPanel.Dock="Top" Padding="5">
+            <MenuItem Header="Algorithm" >
+                <MenuItem Header="A*" Click="OnAStarClick" />
+                <MenuItem Header="Potential Fields" />
+            </MenuItem>
+            <MenuItem Header="E_xit" Click="OnExitClick" />
+        </Menu>
+        <DockPanel LastChildFill="True" x:Name="MainContainer"></DockPanel>
+    </DockPanel>
 </Window>
